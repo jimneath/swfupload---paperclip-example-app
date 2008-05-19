@@ -1,0 +1,358 @@
+/*
+	SWFUpload Test
+	--------------
+	By Jim Neath
+		http://jimneath.org
+		
+*/
+
+/* === RESET STYLES === */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+}
+
+:focus
+{
+	outline: 0;
+}
+
+body
+{
+	line-height: 1;
+	color: #000;
+	background: #FFF;
+}
+
+ol, ul
+{
+	list-style: none;
+}
+
+table
+{
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption, th, td
+{
+	text-align: left;
+	font-weight: normal;
+}
+
+blockquote:before, blockquote:after, q:before, q:after
+{
+	content: "";
+}
+
+blockquote, q
+{
+	quotes: "" "";
+}
+
+/* === BASIC TAGS === */
+body
+{
+	text-align: center;
+	font: 12px Arial, sans-serif;
+	color: #222;
+	background: url(../images/bg-body.png) top left repeat-x;
+}
+
+a
+{
+	text-decoration: none;
+	color: #0066C1;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+h1, h2
+{
+	border-bottom: 1px dotted #DDD;
+	padding-bottom: 3px;
+	font-weight: bold;
+	color: #0997C7;
+	margin-bottom: 10px;
+}
+
+h1
+{
+	font-size: 18px;
+}
+
+h2
+{
+	font-size: 14px;
+}
+
+p
+{
+	line-height: 1.3;
+	margin-bottom: 10px;
+}
+
+ul
+{
+	list-style: square;
+	margin-left: 20px;
+}
+
+/* === FORMS === */
+form
+{
+	margin-bottom: 10px;
+}
+
+legend
+{
+	font-weight: bold;
+	color: #F18200;
+	background: #FFF;
+	margin-left: 10px;
+	padding: 5px;
+}
+
+input, select, button
+{
+	font: normal 12px Verdana, sans-serif;
+	padding: 5px;
+	background: #FFF;
+	border: 1px solid #BDC7D8;
+}
+
+label, button, input.button
+{
+	cursor: pointer;
+}
+
+button, input.button
+{
+	background: #DFF7FF 5px center no-repeat;
+	border: 1px solid #A4DBEF;
+	color: #2C758F;
+	padding: 5px 8px 5px 24px;
+	margin-right: 10px;
+	font-size: 11px;
+	font-weight: bold;
+	
+}
+
+button.disabled
+{
+	background-color: #EFFBFF;
+	border: 1px solid #CFF2FF;
+	color: #99C4DF;
+	cursor: default;
+}
+
+form ol
+{
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+}
+
+form li
+{
+	margin-bottom: 8px;
+}
+
+form label
+{
+	display: -moz-inline-box;
+	display: inline-block;
+	width: 130px;
+	float: left;
+	font-size: 12px;
+}
+
+div.buttons
+{
+	padding: 10px 0;
+	border-top: 1px dotted #C4E7F4;
+}
+
+button.upload, input.upload
+{
+	background-image: url(../images/icons/upload.png);
+}
+
+button.browse
+{
+	background-image: url(../images/icons/add.png);
+}
+
+/* === CONTAINERS === */
+div#container
+{
+	width: 600px;
+	text-align: left;
+	margin: 20px auto;
+}
+
+div#main
+{
+	margin-bottom: 20px;
+}
+
+div#header 
+{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+div#footer
+{
+	font-size: 11px;
+	text-align: center;
+	color: #AAA;
+}
+
+/* === CONTENT === */
+div.photo
+{
+	float: left;
+	border: 1px solid #C2E3EF;
+	padding: 5px;
+	background: #FFF;
+	width: 100px;
+	height: 100px;
+	margin: 0 4px 8px 4px;
+	font: 11px Verdana, sans-serif;
+	text-align: center;
+}
+
+img.thumb
+{
+	width: 100px;
+	height: 100px;
+	margin-bottom: -3px;
+}
+
+div.photo div.name
+{
+	width: 100px;
+	overflow: hidden;
+	font-weight: bold;
+	margin: 20px 0 10px 0;
+}
+
+div.photo div.status
+{
+	margin-bottom: 10px;
+}
+
+div.photo div.progress
+{
+	border: 1px solid #C2E3EF;
+	text-align: left;
+	height: 6px;
+	width: 98px;
+}
+
+div.progress div
+{
+	background: #7BB963;
+	height: 6px;
+	width: 0;
+}
+
+/* === MESSAGES === */
+span.error
+{
+	margin-left: 10px;
+	background: url(../images/icons/error.png) left center no-repeat;
+	padding-left: 20px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #C34D34;
+}
+
+div.fieldWithErrors
+{
+	display: inline;
+}
+
+div.fieldWithErrors input, div.fieldWithErrors textarea, div.fieldWithErrors select
+{
+	border-color: #C34D34;
+}
+
+div.errorExplanation
+{
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #FFE4DF;
+	border: 1px solid #EFB3B3;
+}
+
+div.errorExplanation h2
+{
+	font-size: 12px;
+	color: #C34D34;
+	background: url(../images/icons/error.png) left center no-repeat;
+	padding-left: 20px;
+	border: none;
+}
+
+div#loading
+{
+	background: #CF0C0C url(../images/loading.gif) 8px center no-repeat;
+	color: #FFF;
+	padding: 8px 12px 8px 30px;
+	font-weight: bold;
+	position: fixed;
+	top: 0;
+	right: 30px;
+}
+
+div#notice
+{
+	padding: 10px 10px 10px 30px;
+	background: #E7FFDF url(../images/icons/notice.png) 8px center no-repeat;
+	margin-bottom: 10px;
+	border: 1px solid #73B65A;
+	font-weight: bold;
+}
+
+div#warning
+{
+	padding: 10px 10px 10px 30px;
+	background: #FFEFEF url(../images/icons/error.png) 8px center no-repeat;
+	margin-bottom: 10px;
+	border: 1px solid #EFB3B3;
+	font-weight: bold;
+}
+
+div.message
+{
+	background: #FFF8CC;
+	border: 1px solid #FFE222;
+	padding: 10px;
+	margin-bottom: 10px;
+	line-height: 1.3;
+}
+
+/* === CLEARER === */
+.clearer
+{
+	clear: both;
+	height: 1px;
+	overflow: hidden;
+	margin-top: -1px;
+}

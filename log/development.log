@@ -1,0 +1,8 @@
+# Logfile created on Fri May 16 10:26:56 +0100 2008
+
+Processing PhotosController#create (for 127.0.0.1 at 2008-05-16 10:27:08) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--39ee970457d162486647334569ebdcf4ac317b41
+  Parameters: {"Filename"=>"8164~Colors-of-Summer-Posters.jpg", "action"=>"create", "Upload"=>"Submit Query", "controller"=>"photos", "Filedata"=>#<File:C:/Users/JNEATH~1.VIR/AppData/Local/Temp/CGI.3088.1>}
+  [4;36;1mPhoto Create (0.001000)[0m   [0;1mINSERT INTO photos ("updated_at", "file_content_type", "file_file_name", "file_file_size", "created_at") VALUES('2008-05-16 10:27:09', 'image/jpeg', '8164~Colors-of-Summer-Posters.jpg', 64025, '2008-05-16 10:27:09')[0m
+Rendered photos/_photo (0.01100)
+Completed in 1.10700 (0 reqs/sec) | Rendering: 0.01100 (0%) | DB: 0.00100 (0%) | 200 OK [http://localhost/photos]

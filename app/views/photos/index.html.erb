@@ -1,0 +1,52 @@
+<div id="images">
+	<%= render :partial => 'photo', :collection => @photos %>
+</div>
+<br class="clearer" />
+<h2>Upload Via SWFUpload (<%= link_to 'Upload Normally', new_photo_path %>)</h2>
+<div class="message">
+	Select your images using the browse button below. Once you have selected all your images then click the "Upload x Files" button to upload.
+</div>
+<div class="buttons">
+	<button id="browse" class="browse">Browse</button>
+	<button id="upload" class="upload">Upload 0 Files</button>
+</div>
+
+<% content_for(:js) do %>
+	<%= javascript_include_tag 'swfupload' %>
+	<%= javascript_include_tag 'upload' %>
+	<script type="text/javascript">
+		var swfu;
+		
+		// Dom Ready
+		$(document).ready(function() {
+			// Setup SWFU object
+			var settings = {
+				upload_url: "<%= photos_path %>",
+				flash_url: "/flash/swfupload.swf",
+
+				file_size_limit: "<%= 3.megabytes %>",
+				file_types: "*.jpg;",
+				file_types_description: "Jpg Image Files",
+
+				file_queued_handler: Upload.file_queued,
+				file_dialog_complete_handler: Upload.file_dialog_complete,
+				upload_start_handler: Upload.upload_start,
+				upload_progress_handler: Upload.upload_progress,
+				upload_error_handler: Upload.upload_error,
+				upload_success_handler: Upload.upload_success,
+				upload_complete_handler: Upload.upload_complete,
+
+				debug: false // Set to true to find out why things aren't working
+			};
+			
+			swfu = new SWFUpload(settings);
+			
+			// Disable Upload Button
+			$('#upload').addClass('disabled').attr('disabled', 'true');
+			
+			// Add Event Handlers
+			$('#browse').click(function() { swfu.selectFiles(); });
+			$('#upload').click(function() { swfu.startUpload(); });
+		});
+	</script>
+<% end %>
