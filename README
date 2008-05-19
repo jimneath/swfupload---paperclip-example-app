@@ -1,3 +1,4 @@
-== SWFUpload, Paperclip and Rails Example Application
+h2. SWFUpload, Paperclip and Rails Example Application
 
-I'll fill this in later.
+This is an example app showing how to fix the usual pitfalls 
+that occur when using SWFUpload within your Rails application.
